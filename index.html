@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//排序   升序
+		var arr=[20,6,5,25,98,654,23,770];
+		var arr1=[20,6,5,7,98,2,23,770];
+		sort(arr);
+		function sort(arr,type='>'){  
+		     //带有默认值的形参，写到最后面   第四种方法，ES6里面直接写到形参后，会有兼容性问题，但是可以用bable将ES6转化为ES5
+			if(type==undefined){     //如果输入的值为空值，则给他一个默认值
+				type='>'
+			}
+			// type=type==undefined?'>':type=type;   //  默认值第二种方法
+			// type=type||'>';              //默认值第三种方法
+
+			if(type=='<'){  
+				sortUp(arr)
+			}else if(type=='>'){
+				sortDown(arr)
+			}
+		}
+		function sortUp(arr){				
+		for(var i=0;i<arr.length;i++){
+			for(var j=i+1;j<arr.length;j++){
+				if(arr[i]>arr[j]){
+				var k=arr[i];
+				arr[i]=arr[j];
+				arr[j]=k;
+			    }
+			}
+
+		}
+		console.log(arr);
+	   }
+	   function sortDown(arr){
+		for(var i=0;i<arr.length;i++){
+			for(var j=i+1;j<arr.length;j++){
+				if(arr[i]<arr[j]){
+				var k=arr[i];
+				arr[i]=arr[j];
+				arr[j]=k;
+			    }
+			}			
+		}
+		console.log(arr);
+		}
+	</script>
+</body>
+</html>
